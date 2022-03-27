@@ -9,7 +9,6 @@ const Component = () => {
     quantity: "Quantity"
   })
 
-
   const stuffs = [
     {
       item: 'Butter Bread',
@@ -33,10 +32,12 @@ const Component = () => {
       isPurchased: false
     }
   ]
+
   const handleSumbit = (e) => {
     e.preventDefault()
     console.log(data)
   }
+
   return(
     <div>
       <h3> Add a New Item </h3>
@@ -46,19 +47,20 @@ const Component = () => {
         <input onChange={(e) => setData({...data, units: e.target.value})} type="text" id="units" defaultValue={data.units} /><br/>
         <input onChange={(e) => setData({...data, quantity: e.target.value})} type="text" id="qty" defaultValue={data.quantity} /><br/>
         <input type="submit" value="Add Item" id="submit"/>
-      </form>
+      </form> <br/> <br/>
+
       {stuffs.map((stuff, i) => {
         return(
           <div key={i} id="list">
             {!stuff.isPurchased ? 
-            <div> 
+            <div id="item"> 
             <h1> {stuff.item} </h1>
             <h3> Brand: {stuff.brand} </h3>
             <h3> Units: {stuff.units} </h3>
             <h3> Quantity: {stuff.quantity} </h3> </div> : null }
-          </div>
+          </div> 
       )})}
-
+    
     </div>
   )
 }
